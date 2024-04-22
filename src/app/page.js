@@ -1,9 +1,10 @@
+import Navber from "@/components/Shared/Navber/Navber";
 
 
 export default function Home() {
   return (
     <main>
-     <h1>hello word</h1>
+     <Navber/>
     </main>
   );
 }
