@@ -2,6 +2,7 @@ import "remixicon/fonts/remixicon.css";
 import "./Navber.css";
 import logo from "../../../assets/health facility logo.png";
 import Image from "next/image";
+import Link from "next/link";
 function Navber() {
   return (
     <div className="header">
@@ -168,8 +169,7 @@ function Navber() {
             </ul>
           </div>
           <div className="log-sign" style={{ "--i": "3.27s" }}>
-            <button className="btn transparents">Log in</button>
-            <button className="btn solid">Sign up</button>
+            <Link href="/login" className="btn solid">Log in</Link>
           </div>
         </div>
         <div className="hamburger-menu-container">

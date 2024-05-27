@@ -44,59 +44,62 @@
 
 .carousel .lists .items .content .buttons{
     margin-top: 20px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    display: grid;
+    grid-template-columns: repeat(2, 130px);
+    grid-template-rows: 40px;
+    gap: 5px;
 }
-.carousel .lists .items .content .button {
+.carousel .lists .items .content button{
     display: inline-block;
-    padding: .5rem 1.3rem;
+    padding: .5rem 1rem;
     font-size: 1rem;
     border: 2px solid #04b3fa;
     border-radius: 2rem;
     line-height: 1;
     margin: 0 .2rem;
-    transition: .3s;
+    transition: .8s ease-in-out;
     text-transform: uppercase;
     background: #04b3fa;
-    color: #FFF;
-    margin-right: 10px;
+    color: #000e;
 }
-
+.carousel .lists .items .content button:nth-child(2){
+    border: 2px solid #FFF;
+    background-color: transparent;
+}
 .carousel .lists .items .content .button:hover {
     border: 2px solid #FFF;
-    color: black;
     background-color: #FFF;
 }
 
-/* thumbnail  */
+ /* thumbnail  */
 
 .thumbnail{
     position: absolute;
     bottom: 50px;
-    left: 55%;
+    left: 50%;
     width: max-content;
     z-index: 100;
     display: flex;
     gap: 20px;
 }
 .thumbnail .items{
-    width: 130px;
-    height: 190px;
+    width: 150px;
+    height: 220px;
     flex-shrink: 0;
     position: relative;
-    }
+}
 .thumbnail .items img{
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 20px;
+    border-radius: 10px;
 }
 .thumbnail .items .content{
     position: absolute;
     bottom: 10px;
     left: 10px;
-    right: 10px;
+    right: 10px;    
+    color: rgb(243, 96, 10);
 }
 .thumbnail .items .content .title{
     font-weight: bold;
@@ -118,23 +121,22 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background-color: #FFF;
+    background-color: #eee4;
     border: none;
-    color: black;
+    color: white;
     font-weight: bold;
     font-size: large;
-    transition: .5s;
+    transition: .8s ease-in-out;
     z-index: 100;
 }
 .arrows .arrow-button:hover{
-    background-color: #04b3fa;
-    color: #FFF;
+    background-color: #FFF;
+    color: #000e;
 }
 
 .carousel .lists .items:nth-child(1){
     z-index: 1;
-}
-.carousel .lists .items:nth-child(1) .author,
+}.carousel .lists .items:nth-child(1) .author,
 .carousel .lists .items:nth-child(1) .title,
 .carousel .lists .items:nth-child(1) .topic,
 .carousel .lists .items:nth-child(1) .des,
@@ -173,7 +175,7 @@
     position: absolute;
     left: 50%;
     bottom: 50px;
-    border-radius: 20px;
+    border-radius: 10px;
     animation: showImage .5s 1s linear 1 forwards;
 }
 @keyframes showImage{
@@ -211,7 +213,7 @@
 .carousel.prev .lists .items:nth-child(2){
     z-index: 2;
 }
-.carousel.prev .lists .items:nth-child(2){
+.carousel.prev .lists .items:nth-child(2) img{
     position: absolute;
     bottom: 0;
     left: 0;
@@ -222,7 +224,7 @@
     to{
         width: 150px;
         height: 220px;
-        border-radius: 20px;
+        border-radius: 10px;
         left: 50%;
         bottom: 50px;
     }
@@ -252,25 +254,7 @@
     pointer-events: none;
 }
 
-.time{
-    width: 0%;
-    height: 5px;
-    background-color: rgb(243, 96, 10);
-    position: absolute;
-    z-index: 100;
-    top: 0;
-    left: 0;
-}
-.carousel.next .time,
-.carousel.prev .time{
-    width: 100%;
-    animation: timeRunning 2s linear 1 forwards;
-}
-@keyframes timeRunning{
-    to{
-        width: 0;
-    }
-}
+
 @media screen and (max-width: 768px) {
     .carousel .lists .items .content{
         padding-right: 0;

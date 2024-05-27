@@ -37,7 +37,7 @@
     align-items: center;
     flex: 1;
 }
-
+/* login button style css  */
 .btn {
     display: inline-block;
     padding: .5rem 1.3rem;
@@ -56,14 +56,7 @@
     color: black;
 }
 
-.btn.transparents,
-.btn.btn.solid:hover {
-    background: transparent;
-    color: black;
-}
-
-
-/* menu  */
+/* menu  ul style css start*/
 .nav-links>ul {
     display: flex;
     justify-content: center;
