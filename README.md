@@ -1,3 +1,8 @@
+Instoll package
+1. use the [remix icon](https://remixicon.com/)
+2. use the [eact-hook-form](https://react-hook-form.com/get-started)
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
