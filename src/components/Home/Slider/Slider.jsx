@@ -8,55 +8,50 @@ import Image from "next/image";
 import "./Slider.css";
 import { useEffect, useState } from "react";
 export default function Slider() {
-  const [next, setNext] = useState(null);
-  const [prev, setPrev] = useState(null);
-  let runTimeOut;
-  let autoRunTime;
+  const [nextDom, setNextDom] = useState(null);
+  const [prevDom, setPrevDom] = useState(null);
 
-  useEffect(() => {
-    const itemSliders = document.querySelectorAll(".carousel .lists .items");
-    const listItemDom = document.querySelector(".carousel .lists");
-    const carousel = document.querySelector(".carousel");
-    const thumbnailItems = document.querySelectorAll(
-      ".carousel .thumbnail .items"
-    );
-    const thumbnailDome = document.querySelector(".carousel .thumbnail");
+  useEffect(()=>{
+    let carouselDom = document.querySelector('.carousel')
+    let listsDom = document.querySelector('.carousel .lists')
+    let thumbnailDom = document.querySelector('.carousel .thumbnail')
+   
 
-    // prev slider and thumbnail runn the code
-    if (prev === "prev") {
-      let positionItems = itemSliders.length - 1;
-      listItemDom.prepend(itemSliders[positionItems]);
-      carousel.classList.add("prev");
-      if (prev === "prev") {
-        thumbnailDome.prepend(thumbnailItems[positionItems]);
+
+    let runTimeOut;
+    let runAutoTime;
+
+    function showSlider(nextDom, prevDom){
+      let itemSlider = document.querySelectorAll('.carousel .lists .items')
+      let thumbnailSlider = document.querySelectorAll('.carousel .thumbnail .items')
+      if(nextDom === "next"){
+        listsDom.appendChild(itemSlider[0])
+        thumbnailDom?.appendChild(thumbnailSlider[0])
+        carouselDom.classList.add('next')
       }
-    }
-    // next slider and thumbnail runn the code
-    if (next === "next") {
-      listItemDom.appendChild(itemSliders[0]);
-      carousel.classList.add("next");
-      if (next === "next") {
-        thumbnailDome.appendChild(thumbnailItems[0]);
+      if(prevDom === "prev"){
+        let positionItem = itemSlider.length - 1;
+        listsDom.prepend(itemSlider[positionItem])
+        thumbnailDom?.prepend(thumbnailSlider[positionItem])
+        carouselDom.classList.add('prev')
+
       }
+
+      clearTimeout(runTimeOut)
+      runTimeOut = setTimeout(() => {
+        carouselDom.classList.remove('next')
+        carouselDom.classList.remove('prev')
+      }, 3000);
+
+     /*  clearTimeout(runAutoTime)
+      runAutoTime = setTimeout(() => {
+        setNextDom('next')
+      }, 5000); */
     }
-
-    // click the next and prev button and class remove functionn
-    clearTimeout(runTimeOut);
-    runTimeOut = setTimeout(() => {
-      carousel.classList.remove("next");
-      carousel.classList.remove("prev");
-    }, 3000);
-
-    // auto next button click and auto next slider function 
-    clearTimeout(autoRunTime);
-    autoRunTime = setTimeout(() => {
-      setNext("next");
-    }, 6000);
-    return () => {
-      setNext(null);
-      setPrev(null);
-    };
-  }, [prev, next, runTimeOut,autoRunTime]);
+    showSlider(nextDom, prevDom)
+    setNextDom(null)
+    setPrevDom(null)
+  },[nextDom, prevDom])
   return (
     <div className="carousel">
       {/* body slider images and content start  */}
@@ -163,28 +158,24 @@ export default function Slider() {
           <Image width="auto" height="auto" src={slider1} alt="slider" />
           <div className="content">
             <div className="title">Name Slider</div>
-            <div className="des">ut nemo</div>
           </div>
         </div>
         <div className="items">
           <Image width="auto" height="auto" src={slider2} alt="slider" />
           <div className="content">
             <div className="title">Name Slider</div>
-            <div className="des">ut nemo</div>
           </div>
         </div>
         <div className="items">
           <Image width="auto" height="auto" src={slider3} alt="slider" />
           <div className="content">
             <div className="title">Name Slider</div>
-            <div className="des">ut nemo</div>
           </div>
         </div>
         <div className="items">
           <Image width="auto" height="auto" src={slider4} alt="slider" />
           <div className="content">
             <div className="title">Name Slider</div>
-            <div className="des">ut nemo</div>
           </div>
         </div>
       </div>
@@ -193,22 +184,18 @@ export default function Slider() {
       {/* arrows button clicing prev and next */}
       <div className="arrows">
         <button
-          onClick={() => setPrev("prev")}
-          id="prev"
+          onClick={()=>setPrevDom('prev')}
           className="arrow-button"
         >
           {"<"}
         </button>
         <button
-          onClick={() => setNext("next")}
-          id="next"
+          onClick={()=>setNextDom('next')}
           className="arrow-button"
         >
           &gt;
         </button>
       </div>
-      {/* time function css  */}
-      <div className="time"></div>
     </div>
   );
 }
