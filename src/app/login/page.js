@@ -12,9 +12,10 @@ import login from "../../assets/Authontication/login.svg";
 import { useEffect } from "react";
 
 import { useForm } from "react-hook-form";
+import Link from "next/link";
+import Social from "../../components/Shared/social/Social";
 
 export default function AuthenticationPage() {
-  
   // cntainer css and new class added the code in class name sign-up-mode
   useEffect(() => {
     const signUpBtn = document.querySelector("#sign-up-btn");
@@ -32,8 +33,12 @@ export default function AuthenticationPage() {
   // use the react hooks form
   const { register, handleSubmit, reset } = useForm();
   // create the hendel login function code  start
-  const hendelLoginForm = (data) => {
-    console.log(data);
+
+  const hendelLoginForm = (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    console.log(email, password);
   };
 
   // create the hendel sign up function code  start
@@ -46,25 +51,25 @@ export default function AuthenticationPage() {
         {/* authontication login and signup form code start */}
         <div className="signin-signup">
           {/* authontication login form code start */}
-          <form
-            onSubmit={handleSubmit(hendelLoginForm)}
-            className="sing-in-form"
-          >
+          <form onSubmit={(e) => hendelLoginForm(e)} className="sing-in-form">
+            <spam className="home-back">
+              <Link href="/" className="link-back">
+                {" "}
+                <i className="ri-corner-up-left-line"></i>Go Back
+              </Link>
+            </spam>
             <h1 className="title">Sign in</h1>
             <div className="input-field">
               <i className="ri-user-fill"></i>
-              <input
-                type="email"
-                {...register("email", { required: true })}
-                placeholder="Email"
-              />
+              <input type="email" name="email" placeholder="Email" required />
             </div>
             <div className="input-field">
               <i className="ri-lock-password-fill"></i>
               <input
                 type="password"
-                {...register("password", { required: true })}
+                name="password"
                 placeholder="Password"
+                required
               />
             </div>
             <input
@@ -73,17 +78,9 @@ export default function AuthenticationPage() {
               className="btn-authentication login"
             />
             <p className="social-text">Or Sign In with Social Platforms</p>
-            <div className="social-media">
-              <button className="social-icon">
-                <i className="ri-facebook-circle-fill"></i>
-              </button>
-              <button className="social-icon">
-                <i className="ri-github-fill"></i>
-              </button>
-              <button className="social-icon">
-                <i className="ri-google-fill"></i>
-              </button>
-            </div>
+             {/* social icons section designe code start  */}
+             <Social />
+            {/* social icons section designe code end  */}
           </form>
           {/* authontication login form code end */}
 
@@ -117,23 +114,18 @@ export default function AuthenticationPage() {
                 placeholder="Password"
               />
             </div>
+            <div className="file">
+              <input type="file" {...register("file", { required: true })} />
+            </div>
             <input
               type="submit"
               value="Sign Up"
               className="btn-authentication login"
             />
             <p className="social-text">Or Sign Up with Social Platforms</p>
-            <div className="social-media">
-              <button className="social-icon">
-                <i className="ri-facebook-circle-fill"></i>
-              </button>
-              <button className="social-icon">
-                <i className="ri-github-fill"></i>
-              </button>
-              <button className="social-icon">
-                <i className="ri-google-fill"></i>
-              </button>
-            </div>
+            {/* social icons section designe code start  */}
+            <Social />
+            {/* social icons section designe code end  */}
           </form>
           {/* authontication sign up form code end */}
         </div>
@@ -146,10 +138,11 @@ export default function AuthenticationPage() {
         {/* left panel section start the code  */}
         <div className="panel left-panel">
           <div className="content">
-            <h3>New here ?</h3>
+            <h3>Sign Up Now !</h3>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Exercitationem esse minima
+              Use strong, unique passwords, enable two-factor authentication,
+              and beware of phishing. Regularly monitor account activity for
+              added security.
             </p>
             <button className="btn-authentication transparent" id="sign-up-btn">
               Sign Up
@@ -168,10 +161,11 @@ export default function AuthenticationPage() {
 
         <div className="panel right-panel">
           <div className="content">
-            <h3>One of us ?</h3>
+            <h3>Welcome Back ! Health facility medical</h3>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Exercitationem esse minima
+              Create a strong password, use a unique email, and consider
+              enabling two-factor authentication for secure and hassle-free
+              sign-ups.
             </p>
             <button className="btn-authentication transparent" id="sign-in-btn">
               LogIn

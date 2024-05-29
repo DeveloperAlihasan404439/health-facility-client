@@ -1,9 +1,9 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 import slider1 from "../../../assets/slider/photo-1581594549595-35f6edc7b762.avif";
-import slider2 from "../../../assets/slider/slider 2.png";
-import slider3 from "../../../assets/slider/Slider 3.png";
-import slider4 from "../../../assets/slider/Slider 4.png";
+import slider2 from "../../../assets/slider/image_large.jpeg";
+import slider3 from "../../../assets/slider/healthcare2.jpeg";
+import slider4 from "../../../assets/slider/f8-11102016-my-6042.tmb-479v.jpeg";
 import Image from "next/image";
 import "./Slider.css";
 import { useEffect, useState } from "react";

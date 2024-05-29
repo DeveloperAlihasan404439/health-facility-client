@@ -1,0 +1,125 @@
+.customers {
+    position: relative;
+}
+
+.customer {
+    position: absolute;
+    top: 30px;
+    right: -50%;
+    padding: 5px;
+    width: 210px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 10px 0 10px rgba(0, 0, 0, 0.137);
+    z-index: 999;
+    animation: customer 5s infinite forwards;
+}
+
+@keyframes customer {
+    0%, 100% {
+        transform: translateY(0px);
+        background: #04b3fa;
+    }
+    50% {
+        background: #06577a;
+        transform: translateY(80px);
+    }
+}
+
+.customer i {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    font-size: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    background: #fff;
+    color: #04b3fa;
+    transition: .5s ease-in-out;
+}
+.customer:hover i{
+    color: #fff;
+    background: transparent;
+    border: 1px solid #fff;
+
+}
+.customer>h2,
+.customer>p {
+    text-align: left;
+    width: 80%;
+    color: #fff;
+}
+
+.customer>h2 {
+    margin-top: 5px;
+    font-size: 35px;
+    font-weight: 700;
+}
+
+.customer>p {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.support {
+    position: absolute;
+    bottom: -90px;
+    left: 0;
+    padding: 5px;
+    width: 250px;
+    display: flex;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 10px 0 10px rgba(0, 0, 0, 0.137);
+    z-index: 999;
+    animation: support 5.5s infinite forwards;
+}
+@keyframes support {
+    0%, 100% {
+        transform: translateY(0px);
+        background: #d7f1f1;
+    }
+    50% {
+        background: #a1c2c2;
+        transform: translateY(80px);
+    }
+}
+
+.support i {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    font-size: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    background: #04b3fa;
+    transition: .5s ease-in-out;
+    margin-right: 15px;
+}
+.support:hover i{
+    background: black;
+
+}
+
+.support div h2 {
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.support>p {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
